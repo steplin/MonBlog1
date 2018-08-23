@@ -4,4 +4,7 @@
 /vendor/composer/
 /bin/
 /Src/Views/
-/Src/Model/
+/Src/Model/PostManager.php
+/Src/Model/UserManager.php
+/Src/Model/CommentManager.php
+/Src/Model/PdoConnexion.php
