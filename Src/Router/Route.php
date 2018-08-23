@@ -1,5 +1,4 @@
 <?php
-
 namespace Router;
 
 /**
@@ -8,101 +7,102 @@ namespace Router;
  */
 class Route
 {
-    protected $app;
-    protected $url;
-    protected $action;
-    protected $matches;
 
-    use \Blog\Hydrator;
+	protected $app;
+	protected $url;
+	protected $action;
+	protected $matches;
 
-    /**
-     *
-     * @param array $donnees
-     */
-    public function __construct(array $donnees)
-    {
-        if (!empty($donnees)) {
-            $this->hydrate($donnees);
-        }
-    }
+	use \Blog\Hydrator;
 
-    /**
-     *
-     * @param type $url
-     * @return boolean
-     * @throws \Exception
-     */
-    public function match($url)
-    {
-        if (!preg_match('#^'.$this->url.'$#i', $url, $matches)) {
-            return false;
-        }
-        if (isset($matches)) {
-            if (isset($matches[1])) {
-                $this->matches = intval($matches[1]);
+	/**
+	 *
+	 * @param array $donnees
+	 */
+	public function __construct(array $donnees)
+	{
+		if (!empty($donnees)) {
+			$this->hydrate($donnees);
+		}
+	}
 
-                if ($this->matches == 0) {
-                    throw new \Exception(
-                    "L'identifiant de l'article n'est pas un nombre"
-                    );
-                }
-            }
+	/**
+	 *
+	 * @param type $url
+	 * @return boolean
+	 * @throws \Exception
+	 */
+	public function match($url)
+	{
+		if (!preg_match('#^' . $this->url . '$#i', $url, $matches)) {
+			return false;
+		}
+		if (isset($matches)) {
+			if (isset($matches[1])) {
+				$this->matches = intval($matches[1]);
 
-            return true;
-        }
-    }
+				if ($this->matches == 0) {
+					throw new \Exception(
+					"L'identifiant de l'article n'est pas un nombre"
+					);
+				}
+			}
 
-    /**
-     *
-     * @return type
-     */
-    public function app()
-    {
-        return $this->app;
-    }
+			return true;
+		}
+	}
 
-    /**
-     *
-     * @return type
-     */
-    public function action()
-    {
-        return $this->action;
-    }
+	/**
+	 *
+	 * @return type
+	 */
+	public function app()
+	{
+		return $this->app;
+	}
 
-    /**
-     *
-     * @return type
-     */
-    public function matches()
-    {
-        return $this->matches;
-    }
+	/**
+	 *
+	 * @return type
+	 */
+	public function action()
+	{
+		return $this->action;
+	}
 
-    /**
-     *
-     * @param type $url
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-    }
+	/**
+	 *
+	 * @return type
+	 */
+	public function matches()
+	{
+		return $this->matches;
+	}
 
-    /**
-     *
-     * @param type $app
-     */
-    public function setApp($app)
-    {
-        $this->app = $app;
-    }
+	/**
+	 *
+	 * @param type $url
+	 */
+	public function setUrl($url)
+	{
+		$this->url = $url;
+	}
 
-    /**
-     *
-     * @param type $action
-     */
-    public function setAction($action)
-    {
-        $this->action = $action;
-    }
+	/**
+	 *
+	 * @param type $app
+	 */
+	public function setApp($app)
+	{
+		$this->app = $app;
+	}
+
+	/**
+	 *
+	 * @param type $action
+	 */
+	public function setAction($action)
+	{
+		$this->action = $action;
+	}
 }

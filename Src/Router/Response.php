@@ -1,5 +1,4 @@
 <?php
-
 namespace Router;
 
 /**
@@ -9,20 +8,18 @@ namespace Router;
 class Response
 {
 
-    /**
-     *
-     * @param type $location
-     */
-    public function redirect($location)
-    {
-        header('Location: '.$location);
-    }
+	/**
+	 *
+	 * @param type $location
+	 */
+	public function redirect($location)
+	{
+		header('Location: ' . $location);
+	}
 
-    /**
-     *
-     */
-    public function redirect404()
-    {
-        include __DIR__.'/../Errors/404.html';
-    }
+	public function redirect404()
+	{
+		include __DIR__ . '/../../Errors/404.html';
+		exit();
+	}
 }
