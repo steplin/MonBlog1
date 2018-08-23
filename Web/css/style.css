@@ -1,0 +1,27 @@
+.help-block>ul>li{
+    color: #721c24;
+    list-style: none;
+    background-color: #f8d7da;
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+.width-30{
+    width: 30%;
+}
+.width-50{
+    width: 50%;
+}
+.button{
+    margin:auto;
+    display:block;
+}
+.navbar-custom .navbar-nav>.open>a, .navbar-custom .navbar-nav>.open>a:focus, .navbar-custom .navbar-nav>.open>a:hover {
+    color: #fff;
+    background: #18BC9C;
+}
+.navbar-nav>li>.dropdown-menu {
+    background: #2C3E50;
+}

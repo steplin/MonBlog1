@@ -1,0 +1,174 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<header id="accueil">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <img class="img-responsive img-circle" alt="auteur"
+		     src="../Web/img/{{constant('APP_AUTEUR_PHOTO')}}"
+		     alt="">
+                <div class="intro-text">
+                    <h1 class="name">{{constant('APP_AUTEUR')}}</h1>
+                    <hr class="star-light">
+                    <span class="skills">
+			Développeur Web - Concepteur de solutions Web
+		    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="articles">
+    <div class="container">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2 class="header-titre">Derniers articles</h2>
+            <hr/>
+            {% for post in posts %}
+
+            <div class="media thumbnail">
+                <h3>
+		    <a href="article-{{post.id}}.html">
+			Article n° {{post.id}}
+		    </a>
+		</h3>
+
+                <h4>{{post.titre}}</h4>
+                <p>{{post.contenu|striptags|truncate(150)}}
+		    <a href="article-{{post.id}}.html">
+			<br/>[lire la suite]</a></p>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="success" id="cv">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>EN QUELQUES MOTS</h2>
+                <hr class="star-light">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-2">
+                <p class="text-justify">
+		    Pationné d'informatique depuis toujours, sur ce blog, je
+		    parle principalement de HTML, CSS, PHP et MySQL.
+		    J’y partage aussi certaines ressources que je découvre
+		    au fil de ma veille, certaines réflexions sur le métier,
+		    ainsi que quelques retours d’expérience
+		</p>
+            </div>
+            <div class="col-lg-4">
+                <p class="text-justify">
+		    Depuis décembre 2017, je suis la formation Développeur
+		    d'application - PHP / Symfony. Ce site est développé dans
+		    le cadre du projet 5 de la formation.
+		</p>
+            </div>
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <a href="/App/Cv_stephane_briere.pdf"
+		   download="mon_cv_briere_stephane"
+		   class="btn btn-lg btn-outline">
+                    <i class="fa fa-download"></i> Télécharger mon cv
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Me contacter</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <!-- To configure the contact form email address, go to
+		mail/contact_me.php and update the email address in the
+		PHP file on line 19. -->
+                <!-- The form should work on most web servers, but if the
+		form is not working you may need to configure your web server
+		differently. -->
+                <form name="sentMessage" id="contactForm" novalidate>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12
+			     floating-label-form-group controls">
+                            <label for="nom">Nom</label>
+                            <input type="text" class="form-control"
+				   placeholder="Nom" id="nom" required
+				   data-validation-required-message="Saisir
+				   votre nom.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12
+			     floating-label-form-group controls">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" class="form-control"
+				   placeholder="Prénom" id="prenom" required
+				   data-validation-required-message="Saisir
+				   votre prénom.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12
+			     floating-label-form-group controls">
+                            <label for="email">Adresse Email</label>
+                            <input type="email" class="form-control"
+				   placeholder="Adresse Email" id="email"
+				   required
+				   data-validation-required-message="Saisir
+				   votre adresse Email">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12
+			     floating-label-form-group controls">
+                            <label>Téléphone</label>
+                            <input type="tel" class="form-control"
+				   placeholder="Téléphone" id="phone" required
+				   data-validation-required-message="Saisir
+				   votre numéro de téléphone.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12
+			     floating-label-form-group controls">
+                            <label>Message</label>
+                            <textarea rows="5" class="form-control"
+				      placeholder="Message" id="message"
+				      required
+				      data-validation-required-message="Saisir
+				      votre message"></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <button type="submit"
+				    class="btn btn-success btn-lg">
+				Envoyer
+			    </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

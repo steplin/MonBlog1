@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<section id="article">
+    <div class="container">
+        <div>{{session.flash}}</div>
+
+        <div class="col-lg-offset-1 col-lg-10">
+            <h2 class="header-titre">{{ post.titre }}</h2>
+            <hr/>
+            <p class="text-justify">{{post.contenu|nl2br}}</p><br>
+
+            {% if comments is not empty %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="well">Liste des commentaires</h3>
+
+                    {% for comment in comments %}
+                    <div class="media thumbnail">
+                        <h5 class="text-danger">
+			    Commentaire proposé par {{comment.userName}}
+			    le {{comment.dateAjout|date('d-m-Y à  H:i:s' )}}
+			</h5>
+                        <p>{{comment.contenu}}</p>
+                    </div>
+                    {% endfor %}
+
+                    {% endif %}
+                    <div>
+                        {% if session.isAuthenticated %}
+
+                        <h3 class="well">Laisser un commentaire</h3>
+                        <form method="POST">
+                            <div class="form-group">
+                                <textarea required name="contenu"
+					  class="form-control" rows="8"
+					  placeholder="Saisir votre commentaire"></textarea>
+                            </div>
+                            <div class="form-group pull-right">
+                                <input type="submit"
+				       class="btn btn-success btn-lg"
+				       value="Valider">
+                            </div>
+                        </form>
+                        {% else %}
+                        <h4>
+			    Vous devez être connecté pour poster un commentaire!
+			    <a href="/connexion.html"> Se connecter</a>
+			</h4>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</section>
+
+{% endblock %}
