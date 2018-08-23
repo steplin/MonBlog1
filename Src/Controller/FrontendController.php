@@ -36,34 +36,6 @@ class FrontendController extends Controller
      */
     public function show(Request $request)
     {
-       
-
-    }
-
-    /**
-     *
-     * @param Request $request
-     */
-    public function commenter(Request $request)
-    {
-       
-    }
-
-    /**
-     *
-     * @param Request $request
-     */
-    public function connexion(Request $request)
-    {
-
-    }
-   
-    /**
-     *
-     * @param Request $request
-     */
-    public function show(Request $request)
-    {
         if ($request->method() == 'POST') {
             $this->commenter($request);
         }

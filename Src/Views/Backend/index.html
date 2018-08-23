@@ -1,0 +1,45 @@
+{% extends "layoutAdm.html" %}
+
+{% block body %}
+<section>
+    <div class="container">
+        <h2 class="header-titre">{{titre}}</h2>
+        <hr/>
+        <h3>Liste des articles du blog</h3>
+        <table class="table table-condensed">
+            <tr>
+                <th>Titre</th>
+                <th class="width-30">Aperçu de l'article</th>
+                <th>Date d'ajout</th>
+                <th>Dernière modification</th>
+                <th></th>
+            </tr>
+            {% for post in posts %}
+            <tr>
+                <td>
+		    <a href="/admin/article-{{post.id}}.html">
+			{{post.titre}}
+		    </a>
+		</td>
+                <td>{{post.contenu|striptags|truncate(100)}}</td>
+                <td>{{post.dateAjout}}</td>
+                <td>{{post.dateModif}}</td>
+                <td>
+		    <a href="/admin/deletePost-{{post.id}}.html">
+			<i title="Supprimer l'article"
+			   class="fa fa-2x fa-times text-danger"></i>
+		    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div class="row">
+            <div class="form-group col-xs-12">
+                <a href="/admin/addArticle.html"
+		   class="btn btn-success btn-lg">Ajouter un article</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

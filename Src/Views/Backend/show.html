@@ -1,0 +1,86 @@
+{% extends "layoutAdm.html" %}
+
+{% block body %}
+
+<section id="article">
+    <div class="container">
+        <div>{{session.flash}}</div>
+        <div class="row">
+            <div class="col-lg-offset-1 col-lg-10">
+                <h2 class="header-titre">{{ post.titre }}</h2>
+                <hr/>
+                <p class="text-justify">{{post.contenu|nl2br}}</p>
+                <a href="/admin/update-{{post.id}}.html"
+		   class="btn btn-success btn-lg">
+                    <span class="fa fa-edit"></span> Modifier l'article
+                </a>
+                {% if commentsNotValid is not empty %}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="text-info well">Liste des commentaires à valider</h3>
+
+                        {% for commentNotValid in commentsNotValid %}
+
+                        <div class="col-lg-12 thumbnail">
+                            <div class="col-md-9">
+                                <h5 class="text-danger">
+				    Commentaire proposé par
+				    {{commentNotValid.userName}}
+				    le {{commentNotValid.dateAjout|date('d-m-Y à  H:i:s' )}}
+				</h5>
+                                <p>{{commentNotValid.contenu|nl2br}}</p>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group pull-right">
+                                    <a href="/admin/publier-{{commentNotValid.id}}.html?id_post={{post.id}}" class="btn btn-success">
+                                        <span class="fa fa-check"></span> Publier</a>
+                                    </button>
+                                    <a href="/admin/Comment-{{commentNotValid.id}}.html?id_post={{post.id}}" class="btn btn-danger">
+                                        <span class="fa fa-times"></span> Supprimer</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+
+                {% if commentsValid is not empty %}
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3 class="text-warning well">
+			    Liste des commentaires validés
+			</h3>
+
+                        {% for commentValid in commentsValid %}
+
+                        <div class="col-xs-12 thumbnail">
+                            <div class="col-md-8">
+                                <h5 class="text-danger">
+				    Commentaire rédigé par ({{commentValid.userName}})
+				</h5>
+                                <p>{{commentValid.contenu|nl2br}}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group pull-right">
+                                    <button class="btn btn-info">
+                                        <span class="fa fa-check"></span> Publié le {{commentValid.dateAjout|date('d-m-Y à  H:i:s' )}}
+                                    </button>
+                                    <a href="/admin/deleteComment-{{commentValid.id}}.html?id_post={{ post.id}}" class="btn btn-danger">
+                                        <span class="fa fa-times"></span></a>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+</section>
+
+{% endblock %}
