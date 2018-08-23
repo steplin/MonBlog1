@@ -1,0 +1,11 @@
+/Src/Helpers/
+/Src/Controller/
+/Src/Views/
+/Src/Hydrator.php
+/Src/Model/
+/vendor/twig/
+/vendor/bin/
+/vendor/symfony/
+/vendor/composer/
+/bin/
+/App/routes.php

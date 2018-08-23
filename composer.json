@@ -1,0 +1,27 @@
+{
+    "name": "www/blog",
+    "description": "Description of project blog.",
+    "authors": [
+	{
+	    "name": "brieres",
+	    "email": "stephanebriere@gdpweb.fr"
+	}
+    ],
+
+    "autoload": {
+	"psr-4": {
+	    "Blog\\": "Src/",
+	    "Entity\\": "Src/Model/Entity/",
+	    "Controller\\": "Src/Controller/",
+	    "Model\\": "Src/Model/",
+	    "Router\\": "Src/Router/",
+	    "Views\\": "Src/Views/",
+	    "App\\": "App/"
+	}
+    },
+
+    "require": {
+	"twig/twig": "^2.0",
+	"twig/extensions": "^1.5"
+    }
+}
