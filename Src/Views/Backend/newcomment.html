@@ -1,0 +1,36 @@
+{% extends "layoutAdm.html" %}
+
+{% block body %}
+<section>
+    <div class="container">
+        <h3 class="header-titre">{{titre}}</h3>
+        <table class="table table-condensed">
+            <tr>
+                <th>Titre</th>
+                <th class="width-50">Aperçu de l'article</th>
+                <th class="text-center">Dernier commentaire</th>
+                <th class="text-center">Nombre de commentaires à valider</th>
+            </tr>
+            {% for post in posts %}
+            <tr>
+                <td>
+		    <a href="/admin/article-{{post.id}}.html">
+			{{post.titre}}
+		    </a>
+		</td>
+                <td>
+		    {{post.contenu|striptags|truncate(100)}}
+		</td>
+                <td class="text-center">
+		    {{post.dateAjout|date("m/d/Y à H:i")}}
+		</td>
+                <td class="text-center">
+		    {{post.nbcomment}}
+		</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</section>
+
+{% endblock %}
