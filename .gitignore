@@ -3,4 +3,7 @@
 /vendor/symfony/
 /vendor/composer/
 /bin/
-/Src/Views/
+/nbproject/private/
+/Src/Views/Backend/
+/Web/startbootstrap/
+/Web/css/font-awesome-4.7.0/

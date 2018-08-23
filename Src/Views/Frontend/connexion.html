@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<section id="connexion">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>{{titre}}</h2>
+            </div>
+            <hr class="star-light">
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+
+                <form name="connexion" id="connexion" method="POST">
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12
+			     floating-label-form-group controls">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control"
+				   placeholder="Email" id="email" name="email"
+				   required">
+
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12
+			     floating-label-form-group controls">
+                            <label for="mdp">Mot de passe</label>
+                            <input type="password" class="form-control"
+				   placeholder="Mot de passe" id="mdp" name="mdp"
+				   required ">
+                        </div>
+                    </div>
+                    <br>
+                    <div>{{session.flash}}</div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <button type="submit"
+				    class="btn btn-success btn-lg">
+				Envoyer
+			    </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

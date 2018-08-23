@@ -7,6 +7,7 @@ header("Vary: Accept-Encoding");
 
 require 'vendor/autoload.php';
 
+require 'App/config.dev.php';
 require 'App/routes.php';
 
 $router = new Router\Router();
