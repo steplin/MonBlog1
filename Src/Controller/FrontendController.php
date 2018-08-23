@@ -3,13 +3,13 @@
 namespace Controller;
 
 /**
- * 
  * @author BRIERE Stéphane <stephanebriere@gdpweb.fr>
  */
 use \Router\Request;
 use \Blog\Helpers\SessionHelper;
 
 class FrontendController extends Controller
+
 {
 
     /**
@@ -18,7 +18,7 @@ class FrontendController extends Controller
      */
     public function index()
     {
-  
+      echo 'FrontendController';
     }
 
     /**
@@ -47,4 +47,5 @@ class FrontendController extends Controller
     {
 
     }
+
 }
