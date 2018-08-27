@@ -16,7 +16,7 @@ class Request
 	public function getData($key)
 	{
 		$getKey = $_GET[$key];
-		return isset($getKey) &&!empty($getKey = ) ? $getKey = : null;
+		return isset($getKey) && !empty($getKey) ? $getKey : null;
 	}
 
 	/**
