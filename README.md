@@ -70,9 +70,11 @@ Or run
 
 
 ## Licence
-
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0735a16379b94840964491d14a9676bb)](https://app.codacy.com/app/gdpweb_3/blog?utm_source=github.com&utm_medium=referral&utm_content=gdpweb/blog&utm_campaign=Badge_Grade_Dashboard)
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
+
+## Codacy
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0735a16379b94840964491d14a9676bb)](https://app.codacy.com/app/gdpweb_3/blog?utm_source=github.com&utm_medium=referral&utm_content=gdpweb/blog&utm_campaign=Badge_Grade_Dashboard)
+
 
 ## SensioLabsInsight
 
