@@ -8,6 +8,12 @@ namespace Router;
 class Request
 {
 
+	protected $getKey;
+	protected $serverMethod;
+	protected $postKey;
+	protected $serverRequest;
+	protected $serverUrl;
+
 	/**
 	 *
 	 * @param type $key
@@ -15,8 +21,8 @@ class Request
 	 */
 	public function getData($key)
 	{
-		$getKey = $_GET[$key];
-		return isset($getKey) && !empty($getKey) ? $getKey : null;
+		$this->getKey = $_GET[$key];
+		return isset($this->getKey) && !empty($this->getKey) ? $this->getKey : null;
 	}
 
 	/**
@@ -25,8 +31,8 @@ class Request
 	 */
 	public function method()
 	{
-		$serverMethod = $_SERVER['REQUEST_METHOD'];
-		return $serverMethod;
+		$this->serverMethod = $_SERVER['REQUEST_METHOD'];
+		return $this->serverMethod;
 	}
 
 	/**
@@ -36,8 +42,8 @@ class Request
 	 */
 	public function postData($key)
 	{
-		$postKey = $_POST[$key];
-		return isset($postKey) && !empty($postKey) ? $postKey : null;
+		$this->postKey = $_POST[$key];
+		return isset($this->postKey) && !empty($this->postKey) ? $this->postKey : null;
 	}
 
 	/**
@@ -47,8 +53,8 @@ class Request
 	 */
 	public function postExists($key)
 	{
-		$postKey = $_POST[$key];
-		return isset($postKey);
+		$this->postKey = $_POST[$key];
+		return isset($this->postKey);
 	}
 
 	/**
@@ -57,8 +63,8 @@ class Request
 	 */
 	public function requestURI()
 	{
-		$serverRequest = $_SERVER['REQUEST_URI'];
-		return $serverRequest;
+		$this->serverRequest = $_SERVER['REQUEST_URI'];
+		return $this->serverRequest;
 	}
 
 	/**
@@ -68,8 +74,8 @@ class Request
 	public function requestURL()
 	{
 		// return $_SERVER['REDIRECT_SCRIPT_URL']; en ligne
-		$serverUrl = $_SERVER['REDIRECT_URL'];
-		return $serverUrl;
+		$this->serverUrl = $_SERVER['REDIRECT_URL'];
+		return $this->serverUrl;
 	}
 
 	/**
