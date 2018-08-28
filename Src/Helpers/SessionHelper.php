@@ -19,7 +19,8 @@ class SessionHelper
 	 */
 	public function isAuthenticated()
 	{
-		return isset($_SESSION['auth']) && $_SESSION['auth'] === true;
+		$auth = $_SESSION['auth'];
+		return isset($auth) && $auth === true;
 	}
 
 	/**
