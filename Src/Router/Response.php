@@ -20,6 +20,6 @@ class Response
 	public function redirect404()
 	{
 		include __DIR__ . '/../../Errors/404.html';
-		exit();
+		exit;
 	}
 }
