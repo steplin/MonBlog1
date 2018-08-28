@@ -1,5 +1,4 @@
 <?php
-
 namespace Blog\Helpers;
 
 /**
@@ -8,60 +7,65 @@ namespace Blog\Helpers;
  */
 class SessionHelper
 {
-    public function setAuthenticated()
-    {
-        $_SESSION['auth'] = true;
-    }
 
-    /**
-     *
-     * @return type
-     */
-    public function isAuthenticated()
-    {
-        return isset($_SESSION['auth']) && $_SESSION['auth'] === true;
-    }
+	public function setAuthenticated()
+	{
+		$_SESSION['auth'] = true;
+	}
 
-    /**
-     *
-     * @param type $var
-     * @param type $value
-     */
-    public function setSession($var, $value)
-    {
-        $_SESSION[$var] = $value;
-    }
+	/**
+	 *
+	 * @return type
+	 */
+	public function isAuthenticated()
+	{
+		$auth = $_SESSION['auth'];
+		return isset($auth) && $auth === true;
+	}
 
-    /**
-     *
-     * @param type $var
-     * @return type
-     */
-    public function session($var)
-    {
-        return isset($_SESSION[$var]) ? $_SESSION[$var] : null;
-    }
+	/**
+	 *
+	 * @param type $var
+	 * @param type $value
+	 */
+	public function setSession($var, $value)
+	{
+		$_SESSION[$var] = htmlspecialchars($value);
+	}
 
-    public function destroy()
-    {
-        session_destroy();
-    }
+	/**
+	 *
+	 * @param type $var
+	 * @return type
+	 */
+	public function session($var)
+	{
+		$sessionVar = $_SESSION[$var];
 
-    public function setFlash($message, $type = "success")
-    {
-        $_SESSION['flash'] = array(
-            'message' => $message,
-            'type' => $type
-        );
-    }
+		return isset($sessionVar) ? $sessionVar : null;
+	}
 
-    public function flash()
-    {
-        if (isset($_SESSION['flash'])) {
-            $flash = '<div class="alert alert-'.$_SESSION['flash']['type'].'">';
-            $flash .= '<h5>'.$_SESSION['flash']['message'].'</h5></div>';
-            echo $flash;
-            unset($_SESSION['flash']);
-        }
-    }
+	public function destroy()
+	{
+		session_destroy();
+	}
+
+	public function setFlash($message, $type = "success")
+	{
+		$_SESSION['flash'] = array(
+			'message' => $message,
+			'type' => $type
+		);
+	}
+
+	public function flash()
+	{
+		$messageFlash = $_SESSION['flash'];
+		if (isset($messageFlash)) {
+			$flash = '<div class="alert alert-' . $messageFlash['type'] . '">';
+			$flash .= '<h5>' . $messageFlash['message'] . '</h5></div>';
+			echo $flash;
+			unset($_SESSION['flash']);
+		}
+	}
 }
